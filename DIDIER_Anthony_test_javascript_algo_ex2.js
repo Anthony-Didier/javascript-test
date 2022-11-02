@@ -6,12 +6,12 @@ function create_table() {
 
   for (let i = 0; i < 1; i++) {
     const tr = tbl.insertRow();
-    tr.setAttribute("id", "row2");
+    tr.setAttribute("id", "row");
     for (let j = 0; j < 9; j++) {
       const td = tr.insertCell();
-      td.setAttribute("id", "cell2");
+      td.setAttribute("id", "cell");
       var input = document.createElement("input");
-      input.setAttribute("id", "input2");
+      input.setAttribute("id", "input");
       input.type = "text";
       input.style.width = "20px";
       tr.cells[j].appendChild(input);
@@ -24,7 +24,9 @@ function create_table() {
 }
 
 function F21(a) {
+  document.getElementById("result_display").innerHTML = "";
   let numbersAlreadySeen = [];
+  // results : array with true or false results of the consitions below
   let results = [];
   const result_display = document.getElementById("result_display");
   for (var i = 0; i < a.length; i++) {
@@ -55,6 +57,8 @@ function F21(a) {
   let array = document.createTextNode(`${a}`);
   result_display.appendChild(array);
   let result = document.createElement("p");
+  document.getElementById("anomaly_display").innerHTML = "";
+  // check if there are a false result in the array results
   if (results.includes(false)) {
     let result_value = document.createTextNode(false);
     result_display.appendChild(result);
